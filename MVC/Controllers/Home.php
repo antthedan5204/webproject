@@ -6,9 +6,11 @@
         }
         public function Get_data(){
             $product = $this->dssp->hienThiTatCa();
+            $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
             $this->view('Masterlayout',[
                 'page'=>'Home',
-                'dulieu'=> $product
+                'dulieu'=> $product,
+                'username'=>$username
             ]);
         }
         public function chiTiet($ID){

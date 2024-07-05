@@ -57,14 +57,19 @@ function addHeader() {
 
             <div class="tools-member">
                 <div class="member">
-                    <a onclick="checkTaiKhoan()">
+                
+                    <a href="http://localhost/webproject/dangnhap">
                         <i class="fa fa-user"><img style="width:15px; height:15px;" src="http://localhost/webproject/Public/Pictures/user.png"></i>
-                        Tài khoản
+                        Đăng nhập
                     </a>
-                    <div class="menuMember hide">
-                        <a href="nguoidung.html">Trang người dùng</a>
+
+                    <div class="menuMember">
+                        <a href="http://localhost/webproject/nguoidung">Trang người dùng</a>
                         <a onclick="if(window.confirm('Xác nhận đăng xuất ?')) logOut();">Đăng xuất</a>
                     </div>
+
+                    
+                    
 
                 </div> <!-- End Member -->
 
@@ -87,6 +92,38 @@ function addHeader() {
     </div> <!-- End Header -->`)
 }
 
+var isLoggedIn = false;
+$(document).ready(function() {
+    checkLoginStatus(function(status) {
+        isLoggedIn = status;
+        updateLoginUI();
+    });
+});
+
+function updateLoginUI() {
+    if (isLoggedIn) {
+        $('.menuMember').show();
+        $('.loginLink').hide();
+    } else {
+        $('.menuMember').hide();
+        $('.loginLink').show();
+    }
+}
+
+function checkLoginStatus(callback) {
+    $.ajax({
+        url: 'Core/AuthService.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            callback(response.isLoggedIn);
+        },
+        error: function() {
+            console.log('Lỗi khi kiểm tra trạng thái đăng nhập');
+            callback(false);
+        }
+    });
+}
 // Thêm footer
 function addFooter() {
     document.write(`

@@ -11,7 +11,7 @@
     
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form method="post" action="http://localhost/webproject/dangnhap/register">
                 <h1>Tạo tài khoản</h1>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -19,22 +19,16 @@
                     <a href="#"><i class="fa-brands fa-github"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>
-                    hoặc sử dụng email để đăng nhập
-                </span>
-                <input type="text"
-                placeholder="Tên đăng nhập">
-                <input type="email"
-                placeholder="Email">
-                <input type="password"
-                placeholder="Mật khẩu">
-                <button>
-                    Đăng kí
-                </button>
+                <span> hoặc sử dụng tài khoản để đăng nhập </span>
+                <input type="text" placeholder="Họ và tên" name="username" value="<?php if(isset($data['hoten'])) echo $data['hoten'] ?>">
+                <input type="text" placeholder="Tên đăng nhập" name="userlogin" value="<?php if(isset($data['tendangnhap'])) echo $data['tendangnhap'] ?>">
+                <input type="email" placeholder="Email" name="email" value="<?php if(isset($data['email'])) echo $data['email'] ?>">
+                <input type="password" placeholder="Mật khẩu" name="password" value="<?php if(isset($data['mat_khau'])) echo $data['mat_khau'] ?>">
+                <button name="btnDangky"> Đăng kí </button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form method="post" action="http://localhost/webproject/dangnhap/login">
                 <h1>Đăng nhập</h1>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -42,17 +36,11 @@
                     <a href="#"><i class="fa-brands fa-github"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>
-                    hoặc sử dụng mật khẩu email của bạn
-                </span>
-                <input type="email"
-                placeholder="Email">
-                <input type="password"
-                placeholder="Mật khẩu">
+                <span> hoặc sử dụng tài khoản của bạn </span>
+                <input type="text" placeholder="Tên đăng nhập" name="userlogin" value="<?php if(isset($data['tendn'])) echo $data['tendn'] ?>">
+                <input type="password" placeholder="Mật khẩu" name="password" value="<?php if(isset($data['matkhau'])) echo $data['matkhau'] ?>">
                 <a href="#">Quên mật khẩu?</a>
-                <button>
-                    Đăng nhập
-                </button>
+                <button name="btnDangnhap"> Đăng nhập </button>
             </form>
         </div>
         
