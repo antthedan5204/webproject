@@ -19,7 +19,9 @@
             return $kq;
         }
         function dangKy($name,$username,$email,$password){
-            $sql="INSERT INTO customers(customer_id, name, username, email, password) VALUE('customer_' || (SELECT MAX(customer_id) FROM customers) + 1,$name,$username,$email,$password)";
+            $sql="SET @max_customer_id = (SELECT MAX(CAST(SUBSTRING(customer_id, 10) AS UNSIGNED)) FROM customers);
+                INSERT INTO customers(customer_id, `name`, username, email, password)
+                VALUES('CONCAT('customer_', @max_customer_id + 1)', $name, $username, $email, $password);";
             return mysqli_query($this->con,$sql);
         }
     }

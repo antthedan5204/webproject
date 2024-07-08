@@ -110,7 +110,7 @@
 	<a href="http://localhost/webproject/chitietsanpham/hienThiChiTiet/<?php echo $row['product_id']?>">
         <div class="contain-khungSanPham" >
             <div class="product-item">
-            <img style="width:150px; height:250px;" src="./Public/Pictures/Products/<?php echo $row['img']?>" alt="<?php echo $row['name']?>">
+            <img style="width:150px; height:250px;" src="http://localhost/webproject/Public/Pictures/Products/<?php echo $row['img']?>" alt="<?php echo $row['name']?>">
             <h3><?php echo $row['name']?></h3>
             <p class="price"><?php echo $row['price']?></p>
             <div class="rating">⭐⭐⭐⭐⭐ 0 đánh giá</div>
@@ -119,6 +119,10 @@
     </a>
     <?php
         }
+    }else{
+    ?>
+        <h1 style="color: red; text-align: center;">Không tìm thấy sản phẩm</h1>
+    <?php
     }
     ?>
   <!-- Thêm các sản phẩm khác tương tự -->

@@ -63,5 +63,9 @@
                 ]);
             }
         }
+        function checkDangNhap(){
+            $isLoggedIn = isset($_SESSION['username']) ? true : false;
+            return $isLoggedIn;
+        }
     }
 ?>

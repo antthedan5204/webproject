@@ -92,38 +92,6 @@ function addHeader() {
     </div> <!-- End Header -->`)
 }
 
-var isLoggedIn = false;
-$(document).ready(function() {
-    checkLoginStatus(function(status) {
-        isLoggedIn = status;
-        updateLoginUI();
-    });
-});
-
-function updateLoginUI() {
-    if (isLoggedIn) {
-        $('.menuMember').show();
-        $('.loginLink').hide();
-    } else {
-        $('.menuMember').hide();
-        $('.loginLink').show();
-    }
-}
-
-function checkLoginStatus(callback) {
-    $.ajax({
-        url: 'Core/AuthService.php',
-        type: 'GET',
-        dataType: 'json',
-        success: function(response) {
-            callback(response.isLoggedIn);
-        },
-        error: function() {
-            console.log('Lỗi khi kiểm tra trạng thái đăng nhập');
-            callback(false);
-        }
-    });
-}
 // Thêm footer
 function addFooter() {
     document.write(`
@@ -134,7 +102,7 @@ function addFooter() {
 
     <!-- ============== Footer ============= -->
     <div class="copy-right">
-        <p><a href="index.html">LDD Phone Store</a> - All rights reserved © 2021 - Designed by
+        <p><a href="index.html">LDD Phone Store</a> - All rights reserved © 2024 - Designed by
             <span style="color: #eee; font-weight: bold">group 10th</span></p>
     </div>`);
 }

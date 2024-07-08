@@ -119,7 +119,7 @@
                 $dl=$this->dssp->timkiem($tensp);
                 $this->view('Masterlayout', [
                     'page' => 'Home',
-                    'dulieu' => $$dl,
+                    'dulieu' => $dl,
                     'tensp'=> $tensp
                 ]);
             }
