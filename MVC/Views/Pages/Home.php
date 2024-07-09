@@ -42,7 +42,7 @@
         <a><img src="http://localhost/webproject/Public/Pictures/Company/HTC.jpg" alt="HTC"></a>
         <a><img src="http://localhost/webproject/Public/Pictures/Company/Motorola.jpg" alt="Motorola"></a>
     </div>
-    
+
     <div class="flexContain">
 
 		<div class="pricesRangeFilter dropdown">
@@ -98,7 +98,7 @@
 				Không có sản phẩm nào
 			</div> <!-- End Khong co san pham -->
 		</ul><!-- End products -->
-
+    
 		<div class="pagination"></div>
 	</div>
     

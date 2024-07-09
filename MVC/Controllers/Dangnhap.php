@@ -63,9 +63,24 @@
                 ]);
             }
         }
+        function isLoggedIn(){
+            $log = isset($_SESSION['username']) ? true : false;
+            return $log;
+        }
         function checkDangNhap(){
-            $isLoggedIn = isset($_SESSION['username']) ? true : false;
-            return $isLoggedIn;
+            if (isset($_SESSION['username'])) {
+                // Nếu đăng nhập, trả về thông tin người dùng
+                echo json_encode([
+                    'loggedIn' => true,
+                    'userName' => $_SESSION['username']
+                ]);
+                exit;
+            }
+
+            // Nếu chưa đăng nhập, trả về trạng thái chưa đăng nhập
+            echo json_encode([
+                'loggedIn' => false
+            ]);
         }
     }
 ?>

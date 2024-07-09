@@ -58,14 +58,15 @@ function addHeader() {
             <div class="tools-member">
                 <div class="member">
                 
-                    <a href="http://localhost/webproject/dangnhap">
+                    <a href="http://localhost/webproject/dangnhap" id="dangNhap">
                         <i class="fa fa-user"><img style="width:15px; height:15px;" src="http://localhost/webproject/Public/Pictures/user.png"></i>
-                        Đăng nhập
+                        Xin chào
                     </a>
 
                     <div class="menuMember">
+
                         <a href="http://localhost/webproject/nguoidung">Trang người dùng</a>
-                        <a onclick="if(window.confirm('Xác nhận đăng xuất ?')) logOut();">Đăng xuất</a>
+                        <a onclick="if(window.confirm('Xác nhận đăng xuất ?')) href="http://localhost/webproject/dangnhap"">Đăng xuất</a>
                     </div>
 
                     
@@ -90,6 +91,58 @@ function addHeader() {
             </div><!-- End Tools Member -->
         </div> <!-- End Content -->
     </div> <!-- End Header -->`)
+}
+
+$(document).ready(function() {
+    // Kiểm tra trạng thái đăng nhập khi trang được tải
+    checkLoginStatus();
+
+        $.ajax({
+            url: 'http://localhost/webproject/dangnhap',
+            type: 'POST',
+            data: {
+                tenUser: username
+            },
+            success: function(response) {
+                var data = JSON.parse(response);
+                if (data.loggedIn) {
+                    // Hiển thị thông tin người dùng
+                    $('#userName').text(data.userName);
+                    $('#dangNhap').hide();
+                    $('#menuMember').show();
+                } else {
+                    // Hiển thị thông báo lỗi
+                    alert('Invalid username or password.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+});
+
+function checkLoginStatus() {
+    $.ajax({
+        url: 'http://localhost/webproject/dangnhap',
+        type: 'GET',
+        success: function(response) {
+            var data = JSON.parse(response);
+            var username = data.userName;
+            if (data.loggedIn) {
+                // Hiển thị thông tin người dùng
+                $('#userName').text(data.userName);
+                $('#dangNhap').hide();
+                $('#menuMember').show();
+            } else {
+                // Hiển thị form đăng nhập
+                $('#dangNhap').show();
+                $('#menuMember').hide();
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
 }
 
 // Thêm footer

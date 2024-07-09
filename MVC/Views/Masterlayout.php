@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shop điện thoại</title>
-    <link rel="stylesheet" href="http://localhost/webproject/Public/Css/owlcarousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="http://localhost/webproject/Public/Css/owlcarousel/owl.theme.default.min.css">    
+    <link rel="stylesheet" href="http://localhost/webproject/Public/Css/owl.carousel.min.css">
+	<link rel="stylesheet" href="http://localhost/webproject/Public/Css/owl.theme.default.min.css">    
     <script src="http://localhost/webproject/Public/Js/Jquery.min.js"></script>
-    <script src="http://localhost/webproject/Public/Js/owlcarousel/owl.carousel.min.js"></script>
+    <script src="http://localhost/webproject/Public/Js/owl.carousel.min.js"></script>
 
     <!-- My css -->
     <link rel="stylesheet" href="http://localhost/webproject/Public/Css/styles.css">
